@@ -16,6 +16,10 @@ These issues occurs on my 'Ubuntu 22.04.1 LTS (as WSL2 on Windows 10)':
     [10:42:05.694] WARN (6): "root" path "/home/platformatic/packages/db-dashboard/build" must exist
     ```
 
+Solved as follow:
+
+1. Change in .env `PLT_SERVER_HOSTNAME=127.0.0.1` in `PLT_SERVER_HOSTNAME=0.0.0.0`
+
 ## Build the Docker image and Run Docker container
 
 Build the Docker image:
