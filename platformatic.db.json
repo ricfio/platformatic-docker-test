@@ -1,0 +1,24 @@
+{
+  "server": {
+    "logger": {
+      "level": "{PLT_SERVER_LOGGER_LEVEL}",
+      "transport": {
+        "target": "pino-pretty"
+      }
+    },
+    "hostname": "{PLT_SERVER_HOSTNAME}",
+    "port": "{PORT}",
+    "cors": {
+      "origin": "{PLT_SERVER_CORS_ORIGIN}"
+    }
+  },
+  "core": {
+    "connectionString": "{DATABASE_URL}"
+  },
+  "dashboard": {
+    "rootPath": true
+  },  
+  "migrations": {
+    "dir": "./migrations"
+  }
+}
