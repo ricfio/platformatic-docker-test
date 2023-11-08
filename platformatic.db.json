@@ -1,24 +1,46 @@
 {
-  "server": {
-    "logger": {
-      "level": "{PLT_SERVER_LOGGER_LEVEL}",
-      "transport": {
-        "target": "pino-pretty"
+  "$schema": "https://platformatic.dev/schemas/v1.9.0/db",
+  "db": {
+    "connectionString": "{DATABASE_URL}",
+    "graphql": false,
+    "openapi": {
+      "enabled": true,
+      "prefix": "/api",
+      "info": {
+        "version": "1.0.0",
+        "title": "Prova sqllite",
+        "description": "API Services"
       }
     },
-    "hostname": "{PLT_SERVER_HOSTNAME}",
-    "port": "{PORT}",
-    "cors": {
-      "origin": "{PLT_SERVER_CORS_ORIGIN}"
+    "schemalock": true,
+    "cache": false,
+    "limit": {
+      "default": 25,
+      "max": 1000
     }
   },
-  "core": {
-    "connectionString": "{DATABASE_URL}"
+  "watch": {
+    "ignore": [
+      "*.sqlite",
+      "*.sqlite-journal"
+    ]
   },
-  "dashboard": {
-    "rootPath": true
-  },  
-  "migrations": {
-    "dir": "./migrations"
+  "server": {
+    "hostname": "{PLT_SERVER_HOSTNAME}",
+    "port": "{PORT}",
+    "logger": {
+      "level": "{PLT_SERVER_LOGGER_LEVEL}"
+    }
+  },
+  "plugins": {
+    "paths": [
+      {
+        "path": "./routes"
+      }
+    ],
+    "typescript": "{PLT_TYPESCRIPT}"
+  },
+  "types": {
+    "autogenerate": true
   }
 }
